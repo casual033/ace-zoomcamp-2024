@@ -18,7 +18,9 @@ blocks:
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}
-  downstream_blocks: []
+  downstream_blocks:
+  - green_taxi_data_to_postgres
+  - green_taxi_data_to_big_query
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -31,6 +33,38 @@ blocks:
   upstream_blocks:
   - load_green_taxi_data
   uuid: filter_green_taxi_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: green_taxi_data_to_postgres
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - filter_green_taxi_data
+  uuid: green_taxi_data_to_postgres
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: green_taxi_data_to_big_query
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - filter_green_taxi_data
+  uuid: green_taxi_data_to_big_query
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
